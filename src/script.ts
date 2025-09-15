@@ -9,9 +9,11 @@ const code = params.get("code");
 if (!code) {
     redirectToAuthCodeFlow(clientId);
 } else {
-    const accessToken = await getAccessToken(clientId, code);
-    const profile = await fetchProfile(accessToken);
-    populateUI(profile);
+    (async () => {
+        const accessToken = await getAccessToken(clientId, code);
+        const profile = await fetchProfile(accessToken);
+        populateUI(profile);
+    })();
 }
 
 async function fetchProfile(code: string): Promise<UserProfile> {
