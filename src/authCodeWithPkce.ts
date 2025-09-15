@@ -1,4 +1,4 @@
-const redirectUri = "https://nearoo.github.io/quick-test/";
+const redirectUri = "https://nearoo.github.io/quick-test/callback/";
 
 export async function redirectToAuthCodeFlow(clientId: string) {
     const verifier = generateCodeVerifier(128);
